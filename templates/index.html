@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AQI Category Predictor</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1></h1>
+    <form id="predict-form">
+        <label for="pm25_aqi">PM2.5 AQI VALUE</label>
+        <input type="number" id="pm25_aqi" name="pm25_aqi" required><br><br>
+
+        <label for="ozone_aqi">O3 AQI VALUE</label>
+        <input type="number" id="ozone_aqi" name="ozone_aqi" required><br><br>
+
+        <label for="no2_aqi">NO2 AQI VALUE</label>
+        <input type="number" id="no2_aqi" name="no2_aqi" required><br><br>
+
+        <label for="co_aqi">CO AQI VALUE</label>
+        <input type="number" id="co_aqi" name="co_aqi" required><br><br>
+
+        <button type="submit">Predict</button>
+        <button type="button" onclick="cleanForm()">Clean</button>
+    </form>
+
+    <div id="result">
+        <p>Predicted AQI Category <span id="predicted_category"></span></p>
+        <p>PM2.5 AQI Category <span id="pm25_category"></span></p>
+        <p>O3 AQI Category <span id="ozone_category"></span></p>
+        <p>NO2 AQI Category <span id="no2_category"></span></p>
+        <p>CO AQI Category <span id="co_category"></span></p>
+    </div>
+
+    <script>
+        document.getElementById('predict-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const data = {
+                co_aqi: document.getElementById('co_aqi').value,
+                ozone_aqi: document.getElementById('ozone_aqi').value,
+                no2_aqi: document.getElementById('no2_aqi').value,
+                pm25_aqi: document.getElementById('pm25_aqi').value
+            };
+
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('predicted_category').innerText = data.predicted_category;
+                document.getElementById('co_category').innerText = data.co_category;
+                document.getElementById('ozone_category').innerText = data.ozone_category;
+                document.getElementById('no2_category').innerText = data.no2_category;
+                document.getElementById('pm25_category').innerText = data.pm25_category;
+            });
+        });
+
+        function cleanForm() {
+            document.getElementById('predict-form').reset();
+            document.getElementById('predicted_category').innerText = '';
+            document.getElementById('co_category').innerText = '';
+            document.getElementById('ozone_category').innerText = '';
+            document.getElementById('no2_category').innerText = '';
+            document.getElementById('pm25_category').innerText = '';
+        }
+    </script>
+</body>
+</html>

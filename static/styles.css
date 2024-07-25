@@ -1,0 +1,103 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url("/static/story4.gif") ;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    height: 85px;
+}
+
+form {
+    margin: 0 auto;
+    width: 300px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-right: 20px;
+    padding-left: 20px;
+    border: 1px solid #fff;
+    background-color: #ffffff57;
+    border-radius: 10px; 
+    font-size: 15px;
+}
+
+label {
+    font-family: "Arial";
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 0px #000000;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 3px solid #000;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #4f4f4f;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#result {
+    margin-top: 20px;
+    margin-left: 350px;
+    margin-right: 350px;
+    border: 1px solid #ccc;
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    background-color: #ffffffb8;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+#result p {
+    margin: 5px 0;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+}
+
+
+#result p span {
+    font-weight: bold;
+    margin-left: 10px;
+    color: rgb(180, 42, 42);
+}
+
+#predict-form {
+    display: flex;
+    flex-wrap: wrap; /* Allows buttons to wrap if the container is too narrow */
+}
+
+#predict-form label {
+    margin-right: 10px; /* Add some space between labels and inputs */
+}
+
+#predict-form input {
+    margin-bottom: 10px; /* Add some space between input fields */
+}
+
+#predict-form button {
+    margin: 10px; /* Add space around buttons */
+    flex: 1; /* Allows buttons to take equal space */
+}
