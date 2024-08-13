@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 
 # Load the dataset
-data = pd.read_csv("C:/Users/muhdh/Desktop/my_flask_app/globalAirPollutionDatasetOriginal.csv")
+data = pd.read_csv("C:/Users/muhdh/Desktop/AQI_Predictor/globalAirPollutionDatasetOriginal.csv")
 
 app = Flask(__name__)
 
